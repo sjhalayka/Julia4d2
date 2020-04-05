@@ -38,13 +38,11 @@ BOOL CAboutDlg::OnInitDialog()
 
 
 	string compile_info;
-	compile_info += "Copyright © 2004-2005 Shawn Halayka";
+	compile_info += "Copyright © 2020 Shawn Halayka";
 	compile_info += "\n";
 	compile_info += "--------------------------------";
 	compile_info += "\n";
 	compile_info += "Shawn Halayka: Design and code";
-	compile_info += "\n-\n";
-	compile_info += "Lisa Halayka: Testing and feedback";
 	compile_info += "\n-\n";
 	compile_info += "Campbell Boucher-Burnet: Z Slicing idea";
 	compile_info += "\n-\n";
@@ -62,7 +60,7 @@ BOOL CAboutDlg::OnInitDialog()
 	compile_info += "\n";
 	compile_info += "--------------------------------";
 	compile_info += "\n";
-	compile_info += "All 3rd party provided source code is Copyright © 2004-2005 by their respective authors.";
+	compile_info += "All 3rd party provided source code is Copyright © 2020 by their respective authors.";
 
 	this->SetDlgItemText(IDC_COMPILE_INFO_STATIC, compile_info.c_str());
 

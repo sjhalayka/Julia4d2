@@ -907,7 +907,7 @@ BEGIN
             VALUE "FileDescription", "Julia 4D 2"
             VALUE "FileVersion", "1.1"
             VALUE "InternalName", "julia4d2.exe"
-            VALUE "LegalCopyright", "Copyright © 2004-2005 Shawn Halayka"
+            VALUE "LegalCopyright", "Copyright © 2020 Shawn Halayka"
             VALUE "OriginalFilename", "julia4d2.exe"
             VALUE "ProductName", "Julia 4D 2"
             VALUE "ProductVersion", "1.1"

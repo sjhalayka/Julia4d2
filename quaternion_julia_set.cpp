@@ -3570,7 +3570,7 @@ int quaternion_julia_set::SaveOBJ(const HWND &progressbar, const HWND &status_te
 		out << setiosflags(ios_base::fixed);
 		out << setprecision(18);
 
-		out << "# Exported from Julia 4D 2 - Copyright (c) 2004-2005 Shawn Halayka -- shalayka@sasktel.net" << endl;
+		out << "# Exported from Julia 4D 2 - Copyright (c) 2020 Shawn Halayka -- shalayka@sasktel.net" << endl;
 		out << "#" << endl;
 		out << "# OBJ tesselation algorithm:" << endl;
 		out << "# Polygonising a scalar field - http://astronomy.swin.edu.au/~pbourke/modelling/polygonise/" << endl;
@@ -3582,7 +3582,7 @@ int quaternion_julia_set::SaveOBJ(const HWND &progressbar, const HWND &status_te
 		out << "# Based on tables by Cory Gene Bloyd along with" << endl;
 		out << "# additional example source code marchingsource.cpp" << endl;
 		out << "#" << endl;
-		out << "# All 3rd party provided source code is Copyright (c) 2004-2005 by their respective authors." << endl << endl;
+		out << "# All 3rd party provided source code is Copyright (c) 2020 by their respective authors." << endl << endl;
 
 		out << "o julia4d2_fractal" << endl;
 		out << "g julia4d2_fractal" << endl << endl;
@@ -4249,7 +4249,7 @@ int quaternion_julia_set::SaveHopfMapOBJ(const HWND &progressbar, const HWND &st
 		out << setiosflags(ios_base::fixed);
 		out << setprecision(18);
 
-		out << "# Exported from Julia 4D 2 - Copyright (c) 2004-2005 Shawn Halayka -- shalayka@sasktel.net" << endl;
+		out << "# Exported from Julia 4D 2 - Copyright (c) 2020 Shawn Halayka -- shalayka@sasktel.net" << endl;
 		out << "#" << endl;
 		out << "# OBJ tesselation algorithm:" << endl;
 		out << "# Polygonising a scalar field - http://astronomy.swin.edu.au/~pbourke/modelling/polygonise/" << endl;
@@ -4261,7 +4261,7 @@ int quaternion_julia_set::SaveHopfMapOBJ(const HWND &progressbar, const HWND &st
 		out << "# Based on tables by Cory Gene Bloyd along with" << endl;
 		out << "# additional example source code marchingsource.cpp" << endl;
 		out << "#" << endl;
-		out << "# All 3rd party provided source code is Copyright (c) 2004-2005 by their respective authors." << endl << endl;
+		out << "# All 3rd party provided source code is Copyright (c) 2020 by their respective authors." << endl << endl;
 
 		out << "o julia4d2_fractal" << endl;
 		out << "g julia4d2_fractal" << endl << endl;

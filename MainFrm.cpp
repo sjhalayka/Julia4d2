@@ -462,7 +462,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	string interface_header = APP_NAME;
 	interface_header += " v";
 	interface_header += APP_VERSION;
-	interface_header += " - Copyright (c) 2004-2005 Shawn Halayka";
+	interface_header += " - Copyright (c) 2020 Shawn Halayka";
 	interface_header += "\nSee Help > About for 3rd party contributor information";
 	Renderer.SetInterfaceHeaderText(interface_header);
 	Renderer.SetBoundingGrid(-1.5f, 1.5f, -1.5f, 1.5f, -1.5f, 1.5f);
