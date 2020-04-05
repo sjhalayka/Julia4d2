@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "julia4d2", "julia4d2.vcxproj", "{DA476E8A-AA37-4F77-A677-D2D4095E57A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Debug|Win32.Build.0 = Debug|Win32
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Release|Win32.ActiveCfg = Release|Win32
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Release|Win32.Build.0 = Release|Win32
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Template|Win32.ActiveCfg = Template|Win32
+		{DA476E8A-AA37-4F77-A677-D2D4095E57A0}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
