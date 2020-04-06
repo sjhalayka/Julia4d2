@@ -203,7 +203,7 @@ public:
 	wstring formula_text;
 	set<history_resolution_group> resolutions;
 
-	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time) const
+	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time)
 	{
 		//history_resolution_group temp_hrg;
 
@@ -283,21 +283,21 @@ public:
 
 	bool AddFile(const wstring &src_file_name, LARGE_INTEGER src_creation_time)
 	{
-		Cjulia4d2Doc temp_params;
-		temp_params.set_parent_vars = false;
+		//Cjulia4d2Doc temp_params;
+		//temp_params.set_parent_vars = false;
 
-		if(FALSE == temp_params.OnOpenDocument(wsts(src_file_name).c_str()))
-			return false;
+		//if(FALSE == temp_params.OnOpenDocument(wsts(src_file_name).c_str()))
+		//	return false;
 
-		history_formula_group temp_hfg;
+		//history_formula_group temp_hfg;
 
-		temp_hfg.formula_text = stws(temp_params.formula_text);
+		//temp_hfg.formula_text = stws(temp_params.formula_text);
 
-		// try to insert new hfg
-		// if exists already, will get iterator to existing, otherwise, will get iterator to new
-		pair< set<history_formula_group>::iterator, bool > pr;
-		pr = formulas.insert(temp_hfg);
-		pr.first->AddFile(src_file_name, temp_params, src_creation_time);
+		//// try to insert new hfg
+		//// if exists already, will get iterator to existing, otherwise, will get iterator to new
+		//pair< set<history_formula_group>::iterator, bool > pr;
+		//pr = formulas.insert(temp_hfg);
+		//(pr.first)->AddFile(src_file_name, temp_params, src_creation_time);
 
 		return true;
 	}
