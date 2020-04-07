@@ -220,8 +220,6 @@ public:
 		history_resolution_group* elem = const_cast<history_resolution_group*>(&*i);
 
 		elem->AddFileHRG(src_file_name, temp_params, src_creation_time);
-
-//		pr.first->AddFileHRG(src_file_name, temp_params, src_creation_time);
 	}
 
 	bool operator<(const history_formula_group &rhs) const
@@ -234,51 +232,57 @@ public:
 
 	void Delete(void)
 	{
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	i->Delete();
-		//}
+		for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			history_resolution_group* elem = const_cast<history_resolution_group*>(&*i);
 
-		//resolutions.clear();
+			elem->Delete();
+		}
+
+		resolutions.clear();
 	}
 
 	void DeleteResolution(const long unsigned int &resolution_group_num)
 	{
-		//if(resolution_group_num >= resolutions.size())
-		//	return;
+		if(resolution_group_num >= resolutions.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	if(iter_count == resolution_group_num)
-		//	{
-		//		i->Delete();
-		//		resolutions.erase(i);
-		//		break;
-		//	}
+		for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			if(iter_count == resolution_group_num)
+			{
+				history_resolution_group* elem = const_cast<history_resolution_group*>(&*i);
 
-		//	iter_count++;
-		//}
+				elem->Delete();
+				resolutions.erase(i);
+				break;
+			}
+
+			iter_count++;
+		}
 	}
 
 	void DeleteSingleFile(const long unsigned int resolution_group_num, const long unsigned int file_num) const
 	{
-		//if(resolution_group_num >= resolutions.size())
-		//	return;
+		if(resolution_group_num >= resolutions.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	if(iter_count == resolution_group_num)
-		//	{
-		//		i->DeleteSingleFile(file_num);
-		//		break;
-		//	}
+		for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			if(iter_count == resolution_group_num)
+			{
+				history_resolution_group* elem = const_cast<history_resolution_group*>(&*i);
 
-		//	iter_count++;
-		//}
+				elem->DeleteSingleFile(file_num);
+				break;
+			}
+
+			iter_count++;
+		}
 	}
 
 };
@@ -325,42 +329,46 @@ public:
 
 	void DeleteFormula(const long unsigned int &formula_num)
 	{
-		//if(formula_num >= formulas.size())
-		//	return;
+		if(formula_num >= formulas.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
-		//{
-		//	if(iter_count == formula_num)
-		//	{
-		//		i->Delete();
-		//		formulas.erase(i);
-		//		break;
-		//	}
+		for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
+		{
+			if(iter_count == formula_num)
+			{
+				history_formula_group* elem = const_cast<history_formula_group*>(&*i);
 
-		//	iter_count++;
-		//}
+				elem->Delete();
+				formulas.erase(i);
+				break;
+			}
+
+			iter_count++;
+		}
 	}
 
 	// gotta add a bunch of these so that it will auto delete stuff
 	void DeleteResolution(const long unsigned int &formula_num, const long unsigned int &resolution_num) const
 	{
-		//if(formula_num >= formulas.size())
-		//	return;
+		if(formula_num >= formulas.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
-		//{
-		//	if(iter_count == formula_num)
-		//	{
-		//		i->DeleteResolution(resolution_num);
-		//		break;
-		//	}
+		for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
+		{
+			if(iter_count == formula_num)
+			{
+				history_formula_group* elem = const_cast<history_formula_group*>(&*i);
 
-		//	iter_count++;
-		//}
+				elem->DeleteResolution(resolution_num);
+				break;
+			}
+
+			iter_count++;
+		}
 	}
 
 	// gotta add a bunch of these so that it will auto delete stuff
