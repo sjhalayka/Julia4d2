@@ -204,7 +204,7 @@ public:
 
 	wstring formula_text;
 
-	void AddFileHFG(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time) const
+	void AddFileHFG(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time) 
 	{
 		history_resolution_group temp_hrg;
 
@@ -214,7 +214,14 @@ public:
 		// if exists already, will get iterator to existing, otherwise, will get iterator to new
 		pair< set<history_resolution_group>::iterator, bool > pr;
 		pr = resolutions.insert(temp_hrg);
-		pr.first->AddFileHRG(src_file_name, temp_params, src_creation_time);
+
+		set<history_resolution_group>::iterator i = pr.first;
+
+		history_resolution_group* elem = const_cast<history_resolution_group*>(&*i);
+
+		elem->AddFileHRG(src_file_name, temp_params, src_creation_time);
+
+//		pr.first->AddFileHRG(src_file_name, temp_params, src_creation_time);
 	}
 
 	bool operator<(const history_formula_group &rhs) const
@@ -298,7 +305,15 @@ public:
 		// if exists already, will get iterator to existing, otherwise, will get iterator to new
 		pair< set<history_formula_group>::iterator, bool > pr;
 		pr = formulas.insert(temp_hfg);
-		pr.first->AddFileHFG(src_file_name, temp_params, src_creation_time);
+		//pr.first->AddFileHFG(src_file_name, temp_params, src_creation_time);
+
+
+		set<history_formula_group>::iterator i = pr.first;
+
+		history_formula_group* elem = const_cast<history_formula_group*>(&*i);
+
+		elem->AddFileHFG(src_file_name, temp_params, src_creation_time);
+
 
 		return true;
 	}
