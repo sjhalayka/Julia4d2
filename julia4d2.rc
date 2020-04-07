@@ -13,11 +13,13 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
+#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -60,11 +62,12 @@ END
 // Menu
 //
 
-IDR_MAINFRAME MENU
+IDR_MAINFRAME MENU 
 BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "&Generate / Cancel\tCtrl+G",  ID_FILE_GENERATE
+        MENUITEM "History &Explorer\tCtrl+E",   ID_EDIT_CACHESETTINGS
         MENUITEM SEPARATOR
         MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
@@ -79,10 +82,15 @@ BEGIN
     BEGIN
         POPUP "Interface Colours"
         BEGIN
-            MENUITEM "Interface Text Colour\tAlt+C", ID_RENDERER_SETINTERFACETEXTCOLOUR
+            MENUITEM "Interface Text Colour\tAlt+C", 
+                                                    ID_RENDERER_SETINTERFACETEXTCOLOUR
+
             MENUITEM "Fog Colour\tAlt+V",           ID_RENDERER_SETFOGCOLOR
             MENUITEM "Background Colour\tAlt+B",    ID_RENDERER_SETBACKGROUNDCOLOR
-            MENUITEM "Restore Default Colours\tAlt+M", ID_RENDERER_RESTOREDEFAULTCOLOURS
+
+            MENUITEM "Restore Default Colours\tAlt+M", 
+                                                    ID_RENDERER_RESTOREDEFAULTCOLOURS
+
         END
     END
     POPUP "&Formula"
@@ -139,38 +147,49 @@ BEGIN
             POPUP "Hyperbolic Sine"
             BEGIN
                 MENUITEM "Hyperbolic Sine: Z = C*sinh(Z)^a", 32787
-                MENUITEM "Hyperbolic Sine Plus: Z = sinh(Z)^a + C*sinh(Z)^a", 32827
+                MENUITEM "Hyperbolic Sine Plus: Z = sinh(Z)^a + C*sinh(Z)^a", 
+                                                        32827
                 MENUITEM "Hyperbolic Sine Classic: Z = sinh(Z^a) + C", 32828
             END
             POPUP "Hyperbolic Cosine"
             BEGIN
                 MENUITEM "Hyperbolic Cosine: Z = C*cosh(Z)^a", 32814
-                MENUITEM "Hyperbolic Cosine Plus: Z = cosh(Z)^a + C*cosh(Z)^a", 32815
-                MENUITEM "Hyperbolic Cosine Classic: Z = cosh(Z^a) + C", 32816
+                MENUITEM "Hyperbolic Cosine Plus: Z = cosh(Z)^a + C*cosh(Z)^a", 
+                                                        32815
+                MENUITEM "Hyperbolic Cosine Classic: Z = cosh(Z^a) + C", 
+                                                        32816
             END
             POPUP "Hyperbolic Tangent"
             BEGIN
                 MENUITEM "Hyperbolic Tangent: Z = C*tanh(Z)^a", 32835
-                MENUITEM "Hyperbolic Tangent Plus: Z = tanh(Z)^a + C*tanh(Z)^a", 32836
-                MENUITEM "Hyperbolic Tangent Classic: Z = tanh(Z^a) + C", 32837
+                MENUITEM "Hyperbolic Tangent Plus: Z = tanh(Z)^a + C*tanh(Z)^a", 
+                                                        32836
+                MENUITEM "Hyperbolic Tangent Classic: Z = tanh(Z^a) + C", 
+                                                        32837
             END
             POPUP "Hyperbolic Cosecant"
             BEGIN
                 MENUITEM "Hyperbolic Cosecant: Z = C*csch(Z)^a", 32817
-                MENUITEM "Hyperbolic Cosecant Plus: Z = csch(Z)^a + C*csch(Z)^a", 32818
-                MENUITEM "Hyperbolic Cosecant Classic: Z = csch(Z^a) + C", 32819
+                MENUITEM "Hyperbolic Cosecant Plus: Z = csch(Z)^a + C*csch(Z)^a", 
+                                                        32818
+                MENUITEM "Hyperbolic Cosecant Classic: Z = csch(Z^a) + C", 
+                                                        32819
             END
             POPUP "Hyperbolic Secant"
             BEGIN
                 MENUITEM "Hyperbolic Secant: Z = C*sech(Z)^a", 32839
-                MENUITEM "Hyperbolic Secant Plus: Z = sech(Z)^a + C*sech(Z)^a", 32840
-                MENUITEM "Hyperbolic Secant Classic: Z = sech(Z^a) + C", 32841
+                MENUITEM "Hyperbolic Secant Plus: Z = sech(Z)^a + C*sech(Z)^a", 
+                                                        32840
+                MENUITEM "Hyperbolic Secant Classic: Z = sech(Z^a) + C", 
+                                                        32841
             END
             POPUP "Hyperbolic Cotangent"
             BEGIN
                 MENUITEM "Hyperbolic Cotangent: Z = C*coth(Z)^a", 32820
-                MENUITEM "Hyperbolic Cotangent Plus: Z = coth(Z)^a + C*coth(Z)^a", 32821
-                MENUITEM "Hyperbolic Cotangent Classic: Z = coth(Z^a) + C", 32822
+                MENUITEM "Hyperbolic Cotangent Plus: Z = coth(Z)^a + C*coth(Z)^a", 
+                                                        32821
+                MENUITEM "Hyperbolic Cotangent Classic: Z = coth(Z^a) + C", 
+                                                        32822
             END
         END
         MENUITEM SEPARATOR
@@ -180,29 +199,40 @@ BEGIN
     BEGIN
         POPUP "Zoom"
         BEGIN
-            MENUITEM "Zoom +\tMouse Wheel Up or Alt+ =", ID_RENDERER_ZOOM_PLUS
-            MENUITEM "Zoom -\tMouse Wheel Down or Alt+ -", ID_RENDERER_ZOOM_MINUS
-            MENUITEM "Retore Default Zoom / Rotation / Translation\tAlt+0", ID_RENDERER_RESETZTR
+            MENUITEM "Zoom +\tMouse Wheel Up or Alt+ =", 
+                                                    ID_RENDERER_ZOOM_PLUS
+            MENUITEM "Zoom -\tMouse Wheel Down or Alt+ -", 
+                                                    ID_RENDERER_ZOOM_MINUS
+            MENUITEM "Retore Default Zoom / Rotation / Translation\tAlt+0", 
+                                                    ID_RENDERER_RESETZTR
         END
         POPUP "Point Size"
         BEGIN
             MENUITEM "Point Size +\tAlt+ .",        ID_RENDERER_POINTSIZE_PLUS
+
             MENUITEM "Point Size -\tAlt+ ,",        ID_RENDERER_POINTSIZE_MINUS
+
         END
         POPUP "Z Slicing"
         BEGIN
             MENUITEM "Z Slice +\tAlt+Z",            ID_RENDERER_ZSLICE_PLUS
             MENUITEM "Z Slice -\tAlt+A",            ID_RENDERER_ZSLICE_MINUS
             MENUITEM "Single Z Slice Mode\tAlt+S",  ID_RENDERER_SINGLEZSLICE
-            MENUITEM "Restore Default Z Slice Configuration\tAlt+W", ID_RENDERER_RESETZSLICING
+            MENUITEM "Restore Default Z Slice Configuration\tAlt+W", 
+                                                    ID_RENDERER_RESETZSLICING
+
         END
         POPUP "Interface Elements"
         BEGIN
             MENUITEM "Interface Text\tAlt+T",       ID_RENDERER_INTERFACETEXT
+
             MENUITEM "Fog\tAlt+O",                  ID_RENDERER_FOG
             MENUITEM "Axis Indicators\tAlt+I",      ID_INTERFACEELEMENTS_AXISINDICATORS
+
             MENUITEM "Bounding Grid\tAlt+G",        ID_RENDERER_BOUNDINGGRID
-            MENUITEM "Restore Default Bounding Grid\tAlt+R", ID_RENDERER_RESETBOUNDINGGRID
+            MENUITEM "Restore Default Bounding Grid\tAlt+R", 
+                                                    ID_RENDERER_RESETBOUNDINGGRID
+
         END
         POPUP "Voxel Opacity"
         BEGIN
@@ -222,6 +252,7 @@ BEGIN
         MENUITEM "&Main Settings",              ID_VIEW_MAIN_SETTINGS
         MENUITEM "E&xtra Settings",             ID_VIEW_EXTRA_SETTINGS
         MENUITEM "M&ultiplication Settings",    ID_VIEW_MULTIPLICATION_SETTINGS
+
         MENUITEM "&Render To Settings",         ID_VIEW_RENDER_TO_SETTINGS
         MENUITEM SEPARATOR
         MENUITEM "&Hide All\tCtrl+H",           ID_VIEW_HIDEALL
@@ -237,7 +268,7 @@ BEGIN
     END
 END
 
-IDR_FORMULA_MENU MENU
+IDR_FORMULA_MENU MENU 
 BEGIN
     POPUP "&Formula"
     BEGIN
@@ -254,14 +285,19 @@ BEGIN
             POPUP "Sine"
             BEGIN
                 MENUITEM "Sine: Z = C*sin(Z)^a",        ID_SINE_SINE
-                MENUITEM "Sine Plus: Z = sin(Z)^a + C*sin(Z)^a", ID_SINE_SINEPLUS
-                MENUITEM "Sine Classic: Z = sin(Z^a) + C", ID_SINE_SINECLASSIC
+                MENUITEM "Sine Plus: Z = sin(Z)^a + C*sin(Z)^a", 
+                                                        ID_SINE_SINEPLUS
+                MENUITEM "Sine Classic: Z = sin(Z^a) + C", 
+                                                        ID_SINE_SINECLASSIC
             END
             POPUP "Cosine"
             BEGIN
                 MENUITEM "Cosine: Z = C*cos(Z)^a",      ID_COSINE_COSINE
-                MENUITEM "Cosine Plus: Z = cos(Z)^a + C*cos(Z)^a", ID_COSINE_COSINEPLUS
-                MENUITEM "Cosine Classic: Z = cos(Z^a) + C", ID_COSINE_COSINECLASSIC
+                MENUITEM "Cosine Plus: Z = cos(Z)^a + C*cos(Z)^a", 
+                                                        ID_COSINE_COSINEPLUS
+                MENUITEM "Cosine Classic: Z = cos(Z^a) + C", 
+                                                        ID_COSINE_COSINECLASSIC
+
             END
             POPUP "Tangent"
             BEGIN
@@ -278,8 +314,11 @@ BEGIN
             POPUP "Secant"
             BEGIN
                 MENUITEM "Secant: Z = C*sec(Z)^a",      ID_SECANT_SECANT
-                MENUITEM "Secant Plus: Z = sec(Z)^a + C*sec(Z)^a", ID_SECANT_SECANTPLUS
-                MENUITEM "Secant Classic: Z = sec(Z^a) + C", ID_SECANT_SECANTCLASSIC
+                MENUITEM "Secant Plus: Z = sec(Z)^a + C*sec(Z)^a", 
+                                                        ID_SECANT_SECANTPLUS
+                MENUITEM "Secant Classic: Z = sec(Z^a) + C", 
+                                                        ID_SECANT_SECANTCLASSIC
+
             END
             POPUP "Cotangent"
             BEGIN
@@ -292,39 +331,60 @@ BEGIN
         BEGIN
             POPUP "Hyperbolic Sine"
             BEGIN
-                MENUITEM "Hyperbolic Sine: Z = C*sinh(Z)^a", ID_HYPERBOLICSINE_HYPERBOLICSINE
-                MENUITEM "Hyperbolic Sine Plus: Z = sinh(Z)^a + C*sinh(Z)^a", 32827
+                MENUITEM "Hyperbolic Sine: Z = C*sinh(Z)^a", 
+                                                        ID_HYPERBOLICSINE_HYPERBOLICSINE
+
+                MENUITEM "Hyperbolic Sine Plus: Z = sinh(Z)^a + C*sinh(Z)^a", 
+                                                        32827
                 MENUITEM "Hyperbolic Sine Classic: Z = sinh(Z^a) + C", 32828
             END
             POPUP "Hyperbolic Cosine"
             BEGIN
                 MENUITEM "Hyperbolic Cosine: Z = C*cosh(Z)^a", 32814
-                MENUITEM "Hyperbolic Cosine Plus: Z = cosh(Z)^a + C*cosh(Z)^a", 32815
-                MENUITEM "Hyperbolic Cosine Classic: Z = cosh(Z^a) + C", 32816
+                MENUITEM "Hyperbolic Cosine Plus: Z = cosh(Z)^a + C*cosh(Z)^a", 
+                                                        32815
+                MENUITEM "Hyperbolic Cosine Classic: Z = cosh(Z^a) + C", 
+                                                        32816
             END
             POPUP "Hyperbolic Tangent"
             BEGIN
-                MENUITEM "Hyperbolic Tangent: Z = C*tanh(Z)^a", ID_HYPERBOLICTANGENT_HYPERBOLICTANGENT
-                MENUITEM "Hyperbolic Tangent Plus: Z = tanh(Z)^a + C*tanh(Z)^a", ID_HYPERBOLICTANGENT_HYPERBOLICTANGENTPLUS
-                MENUITEM "Hyperbolic Tangent Classic: Z = tanh(Z^a) + C", ID_HYPERBOLICTANGENT_HYPERBOLICTANGENTCLASSIC
+                MENUITEM "Hyperbolic Tangent: Z = C*tanh(Z)^a", 
+                                                        ID_HYPERBOLICTANGENT_HYPERBOLICTANGENT
+
+                MENUITEM "Hyperbolic Tangent Plus: Z = tanh(Z)^a + C*tanh(Z)^a", 
+                                                        ID_HYPERBOLICTANGENT_HYPERBOLICTANGENTPLUS
+
+                MENUITEM "Hyperbolic Tangent Classic: Z = tanh(Z^a) + C", 
+                                                        ID_HYPERBOLICTANGENT_HYPERBOLICTANGENTCLASSIC
+
             END
             POPUP "Hyperbolic Cosecant"
             BEGIN
                 MENUITEM "Hyperbolic Cosecant: Z = C*csch(Z)^a", 32817
-                MENUITEM "Hyperbolic Cosecant Plus: Z = csch(Z)^a + C*csch(Z)^a", 32818
-                MENUITEM "Hyperbolic Cosecant Classic: Z = csch(Z^a) + C", 32819
+                MENUITEM "Hyperbolic Cosecant Plus: Z = csch(Z)^a + C*csch(Z)^a", 
+                                                        32818
+                MENUITEM "Hyperbolic Cosecant Classic: Z = csch(Z^a) + C", 
+                                                        32819
             END
             POPUP "Hyperbolic Secant"
             BEGIN
-                MENUITEM "Hyperbolic Secant: Z = C*sech(Z)^a", ID_HYPERBOLICSECANT_HYPERBOLICSECANT
-                MENUITEM "Hyperbolic Secant Plus: Z = sech(Z)^a + C*sech(Z)^a", ID_HYPERBOLICSECANT_HYPERBOLICSECANTPLUS
-                MENUITEM "Hyperbolic Secant Classic: Z = sech(Z^a) + C", ID_HYPERBOLICSECANT_HYPERBOLICSECANTCLASSIC
+                MENUITEM "Hyperbolic Secant: Z = C*sech(Z)^a", 
+                                                        ID_HYPERBOLICSECANT_HYPERBOLICSECANT
+
+                MENUITEM "Hyperbolic Secant Plus: Z = sech(Z)^a + C*sech(Z)^a", 
+                                                        ID_HYPERBOLICSECANT_HYPERBOLICSECANTPLUS
+
+                MENUITEM "Hyperbolic Secant Classic: Z = sech(Z^a) + C", 
+                                                        ID_HYPERBOLICSECANT_HYPERBOLICSECANTCLASSIC
+
             END
             POPUP "Hyperbolic Cotangent"
             BEGIN
                 MENUITEM "Hyperbolic Cotangent: Z = C*coth(Z)^a", 32820
-                MENUITEM "Hyperbolic Cotangent Plus: Z = coth(Z)^a + C*coth(Z)^a", 32821
-                MENUITEM "Hyperbolic Cotangent Classic: Z = coth(Z^a) + C", 32822
+                MENUITEM "Hyperbolic Cotangent Plus: Z = coth(Z)^a + C*coth(Z)^a", 
+                                                        32821
+                MENUITEM "Hyperbolic Cotangent Classic: Z = coth(Z^a) + C", 
+                                                        32822
             END
         END
         MENUITEM SEPARATOR
@@ -338,7 +398,7 @@ END
 // Accelerator
 //
 
-IDR_MAINFRAME ACCELERATORS
+IDR_MAINFRAME ACCELERATORS 
 BEGIN
     "E",            ID_EDIT_CACHESETTINGS,  VIRTKEY, CONTROL, NOINVERT
     "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
@@ -353,7 +413,8 @@ BEGIN
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
-    "I",            ID_INTERFACEELEMENTS_AXISINDICATORS, VIRTKEY, ALT, NOINVERT
+    "I",            ID_INTERFACEELEMENTS_AXISINDICATORS, VIRTKEY, ALT, 
+                                                    NOINVERT
     VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
     VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
     "G",            ID_RENDERER_BOUNDINGGRID, VIRTKEY, ALT, NOINVERT
@@ -364,10 +425,12 @@ BEGIN
     "R",            ID_RENDERER_RESETBOUNDINGGRID, VIRTKEY, ALT, NOINVERT
     "W",            ID_RENDERER_RESETZSLICING, VIRTKEY, ALT, NOINVERT
     "0",            ID_RENDERER_RESETZTR,   VIRTKEY, ALT, NOINVERT
-    "M",            ID_RENDERER_RESTOREDEFAULTCOLOURS, VIRTKEY, ALT, NOINVERT
+    "M",            ID_RENDERER_RESTOREDEFAULTCOLOURS, VIRTKEY, ALT, 
+                                                    NOINVERT
     "B",            ID_RENDERER_SETBACKGROUNDCOLOR, VIRTKEY, ALT, NOINVERT
     "V",            ID_RENDERER_SETFOGCOLOR, VIRTKEY, ALT, NOINVERT
-    "C",            ID_RENDERER_SETINTERFACETEXTCOLOUR, VIRTKEY, ALT, NOINVERT
+    "C",            ID_RENDERER_SETINTERFACETEXTCOLOUR, VIRTKEY, ALT, 
+                                                    NOINVERT
     "S",            ID_RENDERER_SINGLEZSLICE, VIRTKEY, ALT, NOINVERT
     "-",            ID_RENDERER_ZOOM_MINUS, ASCII,  ALT, NOINVERT
     "=",            ID_RENDERER_ZOOM_PLUS,  ASCII,  ALT, NOINVERT
@@ -389,13 +452,14 @@ END
 //
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 571, 355
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
 CAPTION "About"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,395,316,169,32,WS_GROUP
     CTEXT           "Static",IDC_COMPILE_INFO_STATIC,404,53,152,245
-    CONTROL         IDB_SPLASHSCREEN,IDC_STATIC,"Static",SS_BITMAP,7,7,379,341
+    CONTROL         158,IDC_STATIC,"Static",SS_BITMAP,7,7,379,341
     CTEXT           "Static",IDC_COMPILE_TITLE_STATIC,404,20,152,10
     GROUPBOX        "Credits",IDC_STATIC,395,40,169,267
     GROUPBOX        "Version",IDC_STATIC,395,7,169,31
@@ -405,23 +469,30 @@ IDD_MAIN_SETTINGS DIALOGEX 0, 0, 166, 251
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "",IDC_PROGRESS_BAR,"msctls_progress32",PBS_SMOOTH | WS_BORDER,65,7,94,6
+    CONTROL         "",IDC_PROGRESS_BAR,"msctls_progress32",WS_BORDER | 0x1,
+                    65,7,94,6
     DEFPUSHBUTTON   "Generate",IDC_GENERATE,7,7,50,14
-    EDITTEXT        IDC_STATUS_EDIT,63,14,102,12,ES_AUTOHSCROLL | WS_DISABLED | NOT WS_BORDER
+    EDITTEXT        IDC_STATUS_EDIT,63,14,102,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED | NOT WS_BORDER
     LTEXT           "Formula:",IDC_FORMULA_STATIC,7,24,29,8
     PUSHBUTTON      ">",IDC_FORMULA_MENU,7,35,13,12
-    EDITTEXT        IDC_FORMULA_EDIT,21,35,138,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_FORMULA_EDIT,21,35,138,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
     EDITTEXT        IDC_C_X_EDIT,7,66,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_C_Y_EDIT,7,91,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_C_Z_EDIT,7,117,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_C_W_EDIT,7,141,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_Z_W_EDIT,7,177,40,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_ITERATIONS_EDIT,63,202,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_RESOLUTION_EDIT,119,202,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_ITERATIONS_EDIT,63,202,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_RESOLUTION_EDIT,119,202,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
     EDITTEXT        IDC_A_EDIT,7,202,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_INFINITY_EDIT,63,230,40,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_SAMPLES_EDIT,119,230,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_HOPF_FIELD_RESOLUTION_EDIT,7,230,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_SAMPLES_EDIT,119,230,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_HOPF_FIELD_RESOLUTION_EDIT,7,230,40,14,
+                    ES_AUTOHSCROLL | ES_NUMBER
     EDITTEXT        IDC_X_MIN_EDIT,64,66,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_Y_MIN_EDIT,64,91,40,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_Z_MIN_EDIT,64,117,40,14,ES_AUTOHSCROLL
@@ -450,25 +521,35 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,57,50,102,112
     LTEXT           "Samples:",IDC_SAMPLES_STATIC,119,220,30,8
     LTEXT           "Field resolution:",IDC_RESOLUTION_STATIC2,7,220,52,8
-    CONTROL         "Proportional Resolution",IDC_PROP_RES_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,63,177,90,10
+    CONTROL         "Proportional Resolution",IDC_PROP_RES_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,177,90,10
 END
 
 IDD_EXTRA_SETTINGS DIALOGEX 0, 0, 166, 83
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "Swap Z and C",IDC_SWAP_Z_AND_C_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,9,60,10
-    CONTROL         "Randomize C",IDC_RANDOMIZE_C_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,70,9,57,10
-    CONTROL         "Reverse Set",IDC_REVERSE_SET_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,22,55,10
-    CONTROL         "Cull non-surface points",IDC_CULL_NON_SURFACE_POINTS_CHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,70,22,89,10
-    CONTROL         "Hopf map",IDC_HOPF_MAP_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,35,47,10
-    DEFPUSHBUTTON   "Generate",IDC_EXTRA_GEN_BUTTON,157,0,9,11,NOT WS_VISIBLE
-    COMBOBOX        IDC_SHADER_COMBO,12,61,81,80,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    EDITTEXT        IDC_NORMAL_QUALITY_EDIT,109,61,40,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Swap Z and C",IDC_SWAP_Z_AND_C_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,9,60,10
+    CONTROL         "Randomize C",IDC_RANDOMIZE_C_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,70,9,57,10
+    CONTROL         "Reverse Set",IDC_REVERSE_SET_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,22,55,10
+    CONTROL         "Cull non-surface points",
+                    IDC_CULL_NON_SURFACE_POINTS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,70,22,89,10
+    CONTROL         "Hopf map",IDC_HOPF_MAP_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,35,47,10
+    DEFPUSHBUTTON   "Generate",IDC_EXTRA_GEN_BUTTON,157,0,9,11,NOT 
+                    WS_VISIBLE
+    COMBOBOX        IDC_SHADER_COMBO,12,61,81,80,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_NORMAL_QUALITY_EDIT,109,61,40,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
     LTEXT           "Normal Radius:",IDC_STATIC,109,50,49,8
     LTEXT           "Vertex Colouring:",IDC_STATIC,12,50,57,8
-    CONTROL         "3D Shading",IDC_LIGHT_BY_NORMALS_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,70,35,52,10
+    CONTROL         "3D Shading",IDC_LIGHT_BY_NORMALS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,70,35,52,10
 END
 
 IDD_MULTIPLICATION_SETTINGS DIALOGEX 0, 0, 166, 178
@@ -477,42 +558,70 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Multiplication Columns",IDC_STATIC,7,7,152,73
     GROUPBOX        "Multiplication Matrix",IDC_STATIC,7,80,152,91
-    CONTROL         "Default Variables",IDC_MUL_COLUMN_DEFAULT_VARIABLES_RADIO,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,13,18,70,10
+    CONTROL         "Default Variables",
+                    IDC_MUL_COLUMN_DEFAULT_VARIABLES_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,18,70,10
     CONTROL         "Constant Values",IDC_MUL_COLUMN_CONSTANT_VALUES_RADIO,
                     "Button",BS_AUTORADIOBUTTON,13,28,68,10
     CONTROL         "Custom Variables",IDC_MUL_COLUMN_CUSTOM_VARIABLES_RADIO,
                     "Button",BS_AUTORADIOBUTTON,13,51,71,10
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_X_EDIT,25,38,30,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Y_EDIT,57,38,30,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Z_EDIT,89,38,30,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_W_EDIT,121,38,30,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_X_EDIT,25,61,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Y_EDIT,57,61,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Z_EDIT,89,61,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_W_EDIT,121,61,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    CONTROL         "Default Variables",IDC_MUL_MATRIX_DEFAULT_VARIABLES_RADIO,
-                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,13,91,70,10
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_11_EDIT,25,113,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_12_EDIT,57,113,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_13_EDIT,89,113,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_14_EDIT,121,113,30,12,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_X_EDIT,25,38,30,12,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Y_EDIT,57,38,30,12,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Z_EDIT,89,38,30,12,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_W_EDIT,121,38,30,12,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_X_EDIT,25,61,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Y_EDIT,57,61,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Z_EDIT,89,61,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_W_EDIT,121,61,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Default Variables",
+                    IDC_MUL_MATRIX_DEFAULT_VARIABLES_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,91,70,10
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_11_EDIT,25,113,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_12_EDIT,57,113,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_13_EDIT,89,113,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_14_EDIT,121,113,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
     CONTROL         "Custom Variables",IDC_MUL_MATRIX_CUSTOM_VARIABLES_RADIO,
                     "Button",BS_AUTORADIOBUTTON,13,102,71,10
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_21_EDIT,25,126,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_22_EDIT,57,126,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_23_EDIT,89,126,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_24_EDIT,121,126,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_31_EDIT,25,139,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_32_EDIT,57,139,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_33_EDIT,89,139,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_34_EDIT,121,139,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_41_EDIT,25,152,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_42_EDIT,57,152,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_43_EDIT,89,152,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_44_EDIT,121,152,30,12,ES_RIGHT | ES_AUTOHSCROLL
-    CONTROL         "Randomize",IDC_RANDOMIZE_MUL_COLUMN_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,19,51,10
-    CONTROL         "Randomize",IDC_RANDOMIZE_MUL_MATRIX_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,99,92,51,10
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_21_EDIT,25,126,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_22_EDIT,57,126,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_23_EDIT,89,126,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_24_EDIT,121,126,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_31_EDIT,25,139,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_32_EDIT,57,139,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_33_EDIT,89,139,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_34_EDIT,121,139,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_41_EDIT,25,152,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_42_EDIT,57,152,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_43_EDIT,89,152,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_44_EDIT,121,152,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    CONTROL         "Randomize",IDC_RANDOMIZE_MUL_COLUMN_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,99,19,51,10
+    CONTROL         "Randomize",IDC_RANDOMIZE_MUL_MATRIX_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,99,92,51,10
     DEFPUSHBUTTON   "Generate",IDC_MUL_GEN_BUTTON,7,147,9,24,NOT WS_VISIBLE
 END
 
@@ -520,20 +629,26 @@ IDD_RENDER_TO_SETTINGS DIALOGEX 0, 0, 166, 38
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    CONTROL         "Screen",IDC_SCREEN_RADIO,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,9,38,10
-    CONTROL         "Mesh - OBJ File",IDC_MESH_RADIO,"Button",BS_AUTORADIOBUTTON,76,9,65,10
-    CONTROL         "CSV File",IDC_CSV_FILE_RADIO,"Button",BS_AUTORADIOBUTTON,16,22,41,10
-    CONTROL         "Voxel - J4D2VOX file",IDC_VOXEL_RADIO,"Button",BS_AUTORADIOBUTTON,76,22,81,10
-    DEFPUSHBUTTON   "Generate",IDC_RENDER_TO_GEN_BUTTON,0,0,9,24,NOT WS_VISIBLE
+    CONTROL         "Screen",IDC_SCREEN_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,16,9,38,10
+    CONTROL         "Mesh - OBJ File",IDC_MESH_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,76,9,65,10
+    CONTROL         "CSV File",IDC_CSV_FILE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,16,22,41,10
+    CONTROL         "Voxel - J4D2VOX file",IDC_VOXEL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,76,22,81,10
+    DEFPUSHBUTTON   "Generate",IDC_RENDER_TO_GEN_BUTTON,0,0,9,24,NOT 
+                    WS_VISIBLE
 END
 
 IDD_SPLASHSCREEN DIALOGEX 0, 0, 571, 355
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
 CAPTION "Welcome to Julia 4D 2!"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,395,275,169,73,WS_GROUP
-    CONTROL         IDB_SPLASHSCREEN,IDC_STATIC,"Static",SS_BITMAP,7,7,379,341
+    CONTROL         158,IDC_STATIC,"Static",SS_BITMAP,7,7,379,341
     CTEXT           "Static",IDC_COMPILE_TITLE_STATIC,404,20,152,10
     GROUPBOX        "First Time Information",IDC_STATIC,395,40,169,227
     GROUPBOX        "Version",IDC_STATIC,395,7,169,31
@@ -541,33 +656,45 @@ BEGIN
 END
 
 IDD_CACHESETTINGSBOX DIALOGEX 0, 0, 605, 308
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
 CAPTION "History Explorer"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "Close",IDOK,533,285,65,14,WS_GROUP
-    CONTROL         "Swap Z and C",IDC_SWAP_Z_AND_C_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,277,223,60,10
-    CONTROL         "Reverse Set",IDC_REVERSE_SET_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,277,236,55,10
-    CONTROL         "Hopf map",IDC_HOPF_MAP_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,277,249,47,10
+    CONTROL         "Swap Z and C",IDC_SWAP_Z_AND_C_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,277,223,60,10
+    CONTROL         "Reverse Set",IDC_REVERSE_SET_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,277,236,55,10
+    CONTROL         "Hopf map",IDC_HOPF_MAP_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,277,249,47,10
     LTEXT           "Formula:",IDC_FORMULA_STATIC,278,20,29,8
-    EDITTEXT        IDC_FORMULA_EDIT,278,31,152,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_FORMULA_EDIT,278,31,152,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
     EDITTEXT        IDC_C_X_EDIT,278,62,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_C_Y_EDIT,278,87,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_C_Z_EDIT,278,113,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_C_W_EDIT,278,137,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_Z_W_EDIT,278,173,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_ITERATIONS_EDIT,334,173,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    EDITTEXT        IDC_RESOLUTION_EDIT,390,173,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_ITERATIONS_EDIT,334,173,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_RESOLUTION_EDIT,390,173,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
     EDITTEXT        IDC_A_EDIT,278,198,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_INFINITY_EDIT,334,198,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_INFINITY_EDIT,334,198,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
     EDITTEXT        IDC_X_MIN_EDIT,334,62,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_Y_MIN_EDIT,334,87,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_Z_MIN_EDIT,334,113,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_W_MIN_EDIT,334,137,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_Z_MIN_EDIT,334,113,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_W_MIN_EDIT,334,137,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
     EDITTEXT        IDC_X_MAX_EDIT,382,62,40,14,ES_AUTOHSCROLL | ES_READONLY
     EDITTEXT        IDC_Y_MAX_EDIT,382,87,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_Z_MAX_EDIT,382,113,40,14,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_W_MAX_EDIT,382,137,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_Z_MAX_EDIT,382,113,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_W_MAX_EDIT,382,137,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
     LTEXT           "a:",IDC_A_STATIC,278,189,8,8
     LTEXT           "C.x:",IDC_C_X_STATIC,278,53,15,8
     LTEXT           "C.y:",IDC_C_Y_STATIC,278,78,15,8
@@ -586,76 +713,130 @@ BEGIN
     LTEXT           "W max:",IDC_W_MAX_STATIC,382,129,26,8
     LTEXT           "Iterations:",IDC_ITERATIONS_STATIC,334,164,35,8
     GROUPBOX        "",IDC_STATIC,327,47,102,112,WS_DISABLED
-    EDITTEXT        IDC_SAMPLES_EDIT,390,198,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
-    EDITTEXT        IDC_AVG_PERCENT_EDIT,440,253,40,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE
-    EDITTEXT        IDC_ISOVALUE_PERCENT_EDIT,504,228,40,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE
-    EDITTEXT        IDC_AVG_PASSES_EDIT,504,253,40,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER | NOT WS_VISIBLE
+    EDITTEXT        IDC_SAMPLES_EDIT,390,198,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_AVG_PERCENT_EDIT,440,253,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE
+    EDITTEXT        IDC_ISOVALUE_PERCENT_EDIT,504,228,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE
+    EDITTEXT        IDC_AVG_PASSES_EDIT,504,253,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER | NOT WS_VISIBLE
     LTEXT           "Samples:",IDC_SAMPLES_STATIC,390,189,30,8
-    LTEXT           "Avg %:",IDC_AVG_PERCENT_STATIC,440,244,26,8,NOT WS_VISIBLE
-    LTEXT           "Isovalue %:",IDC_ISOVALUE_PERCENT_STATIC,504,219,40,8,NOT WS_VISIBLE
-    LTEXT           "Avg passes:",IDC_AVG_PASSES_STATIC,504,244,40,8,NOT WS_VISIBLE
-    CONTROL         "Screen",IDC_SCREEN_RADIO,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,440,191,38,10
-    CONTROL         "Mesh - OBJ File",IDC_MESH_RADIO,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,500,191,65,10
-    CONTROL         "CSV File",IDC_CSV_FILE_RADIO,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,440,204,41,10
+    LTEXT           "Avg %:",IDC_AVG_PERCENT_STATIC,440,244,26,8,NOT 
+                    WS_VISIBLE
+    LTEXT           "Isovalue %:",IDC_ISOVALUE_PERCENT_STATIC,504,219,40,8,
+                    NOT WS_VISIBLE
+    LTEXT           "Avg passes:",IDC_AVG_PASSES_STATIC,504,244,40,8,NOT 
+                    WS_VISIBLE
+    CONTROL         "Screen",IDC_SCREEN_RADIO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_GROUP,440,191,38,10
+    CONTROL         "Mesh - OBJ File",IDC_MESH_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,500,191,65,10
+    CONTROL         "CSV File",IDC_CSV_FILE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,440,204,41,10
     GROUPBOX        "Multiplication Columns",IDC_STATIC,440,16,152,73
     GROUPBOX        "Multiplication Matrix",IDC_STATIC,440,94,152,91
-    CONTROL         "Default Variables",IDC_MUL_COLUMN_DEFAULT_VARIABLES_RADIO,
-                    "Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,446,27,70,10
+    CONTROL         "Default Variables",
+                    IDC_MUL_COLUMN_DEFAULT_VARIABLES_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,446,27,70,10
     CONTROL         "Constant Values",IDC_MUL_COLUMN_CONSTANT_VALUES_RADIO,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED,446,37,68,10
     CONTROL         "Custom Variables",IDC_MUL_COLUMN_CUSTOM_VARIABLES_RADIO,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED,446,60,71,10
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_X_EDIT,458,47,30,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Y_EDIT,490,47,30,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Z_EDIT,522,47,30,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_W_EDIT,554,47,30,12,ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_X_EDIT,458,70,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Y_EDIT,490,70,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Z_EDIT,522,70,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_W_EDIT,554,70,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    CONTROL         "Default Variables",IDC_MUL_MATRIX_DEFAULT_VARIABLES_RADIO,
-                    "Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,446,105,70,10
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_11_EDIT,458,127,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_12_EDIT,490,127,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_13_EDIT,522,127,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_14_EDIT,554,127,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_X_EDIT,458,47,30,12,
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Y_EDIT,490,47,30,12,
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_Z_EDIT,522,47,30,12,
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CONSTANT_VALUES_W_EDIT,554,47,30,12,
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_X_EDIT,458,70,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Y_EDIT,490,70,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_Z_EDIT,522,70,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_COLUMN_CUSTOM_VARIABLES_W_EDIT,554,70,30,12,
+                    ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Default Variables",
+                    IDC_MUL_MATRIX_DEFAULT_VARIABLES_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,446,105,70,
+                    10
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_11_EDIT,458,127,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_12_EDIT,490,127,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_13_EDIT,522,127,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_14_EDIT,554,127,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
     CONTROL         "Custom Variables",IDC_MUL_MATRIX_CUSTOM_VARIABLES_RADIO,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED,446,116,71,10
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_21_EDIT,458,140,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_22_EDIT,490,140,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_23_EDIT,522,140,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_24_EDIT,554,140,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_31_EDIT,458,153,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_32_EDIT,490,153,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_33_EDIT,522,153,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_34_EDIT,554,153,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_41_EDIT,458,166,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_42_EDIT,490,166,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_43_EDIT,522,166,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
-    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_44_EDIT,554,166,30,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_21_EDIT,458,140,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_22_EDIT,490,140,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_23_EDIT,522,140,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_24_EDIT,554,140,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_31_EDIT,458,153,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_32_EDIT,490,153,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_33_EDIT,522,153,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_34_EDIT,554,153,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_41_EDIT,458,166,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_42_EDIT,490,166,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_43_EDIT,522,166,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MUL_MATRIX_CUSTOM_44_EDIT,554,166,30,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
     GROUPBOX        "History Preview",IDC_STATIC,271,7,327,268
     GROUPBOX        "History",IDC_STATIC,7,7,255,292
-    COMBOBOX        IDC_FORMULA_GROUP_COMBO,16,30,238,365,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_RESOLUTION_GROUP_COMBO,16,58,238,343,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FORMULA_GROUP_COMBO,16,30,238,365,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_RESOLUTION_GROUP_COMBO,16,58,238,343,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Formula:",IDC_STATIC,16,20,29,8
     LTEXT           "Resolution:",IDC_STATIC,16,48,37,8
-    LISTBOX         IDC_FILE_LIST,16,87,238,106,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_FILE_LIST,16,87,238,106,LBS_NOINTEGRALHEIGHT | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Identifier (MD5 hash):",IDC_STATIC,16,77,72,8
-    CONTROL         "Cached",IDC_CACHED_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,16,196,40,10
-    PUSHBUTTON      "Delete Identifier",IDC_DELETE_IDENTIFIER_BUTTON,23,251,65,14
-    PUSHBUTTON      "Delete Resolution",IDC_DELETE_RES_GROUP_BUTTON,102,251,65,14
-    PUSHBUTTON      "Delete Formula",IDC_DELETE_FORMULA_GROUP_BUTTON,180,251,65,14
-    GROUPBOX        "Delete History && Cache Item(s)",IDC_STATIC,16,238,238,51
-    CONTROL         "Generate Set On Double-Click",IDC_AUTO_GENCHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,196,166,10
-    CONTROL         "Close History Explorer On Double-Click",IDC_AUTO_CLOSE_CACHE_SETTINGS_CHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,209,166,10
-    CONTROL         "Cull non-surface points",IDC_CULL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,342,236,89,10
-    PUSHBUTTON      "History && Cache Disk Settings...",IDC_DISK_SETTINGS_BUTTON,388,285,117,14
-    CONTROL         "Warn",IDC_DELETE_FILE_ITEM_WARN_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,272,33,10
-    CONTROL         "Warn",IDC_DELETE_RES_GROUP_WARN_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,118,273,33,10
-    CONTROL         "Warn",IDC_DELETE_FORMULA_GROUP_WARN_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,196,273,33,10
-    CONTROL         "Voxel - J4D2VOX file",IDC_VOXEL_RADIO,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,500,204,81,10
-    CONTROL         "Proportional Resolution",IDC_PROP_RES_CHECK,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,342,222,90,10
+    CONTROL         "Cached",IDC_CACHED_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,16,196,40,10
+    PUSHBUTTON      "Delete Identifier",IDC_DELETE_IDENTIFIER_BUTTON,23,251,
+                    65,14
+    PUSHBUTTON      "Delete Resolution",IDC_DELETE_RES_GROUP_BUTTON,102,251,
+                    65,14
+    PUSHBUTTON      "Delete Formula",IDC_DELETE_FORMULA_GROUP_BUTTON,180,251,
+                    65,14
+    GROUPBOX        "Delete History && Cache Item(s)",IDC_STATIC,16,238,238,
+                    51
+    CONTROL         "Generate Set On Double-Click",IDC_AUTO_GENCHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,64,196,166,10
+    CONTROL         "Close History Explorer On Double-Click",
+                    IDC_AUTO_CLOSE_CACHE_SETTINGS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,64,209,166,10
+    CONTROL         "Cull non-surface points",IDC_CULL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,342,236,89,10
+    PUSHBUTTON      "History && Cache Disk Settings...",
+                    IDC_DISK_SETTINGS_BUTTON,388,285,117,14
+    CONTROL         "Warn",IDC_DELETE_FILE_ITEM_WARN_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,37,272,33,10
+    CONTROL         "Warn",IDC_DELETE_RES_GROUP_WARN_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,118,273,33,10
+    CONTROL         "Warn",IDC_DELETE_FORMULA_GROUP_WARN_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,196,273,33,10
+    CONTROL         "Voxel - J4D2VOX file",IDC_VOXEL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED,500,204,81,10
+    CONTROL         "Proportional Resolution",IDC_PROP_RES_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,342,222,90,10
 END
 
 IDD_LICENSEBOX DIALOGEX 0, 0, 361, 214
@@ -664,7 +845,9 @@ CAPTION "License Terms"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "OK",IDOK,306,191,46,14,WS_GROUP
-    EDITTEXT        IDC_LICENSE_EDIT,7,7,345,175,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL,WS_EX_DLGMODALFRAME
+    EDITTEXT        IDC_LICENSE_EDIT,7,7,345,175,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL,
+                    WS_EX_DLGMODALFRAME
 END
 
 IDD_DISKSETTINGSBOX DIALOGEX 0, 0, 290, 130
@@ -673,22 +856,28 @@ CAPTION "History & Cache Disk Settings"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "OK",IDOK,174,109,46,14,WS_GROUP
-    CONTROL         "Enable Cache Reads",IDC_ENABLE_CACHE_READS_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,33,71,81,10
+    CONTROL         "Enable Cache Reads",IDC_ENABLE_CACHE_READS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,33,71,81,10
     GROUPBOX        "",-1,17,19,160,45
     LTEXT           "Suggested Limit (max 4294967295 MB):",-1,33,32,128,8
-    EDITTEXT        IDC_CACHE_SIZE_EDIT,33,43,102,14,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER
-    PUSHBUTTON      "Clear History && Cache",IDC_CLEAR_CACHE_BUTTON,187,35,84,14
-    CONTROL         "Limit History && Cache Disk Space Usage",IDC_LIMIT_DISK_USAGE_CHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,19,139,10
+    EDITTEXT        IDC_CACHE_SIZE_EDIT,33,43,102,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Clear History && Cache",IDC_CLEAR_CACHE_BUTTON,187,35,
+                    84,14
+    CONTROL         "Limit History && Cache Disk Space Usage",
+                    IDC_LIMIT_DISK_USAGE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,27,19,139,10
     CONTROL         "Enable Cache Writes",IDC_ENABLE_CACHE_WRITES_CHECK,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,33,85,82,10
     LTEXT           "MB",-1,137,45,10,8
     GROUPBOX        "Disk Usage Settings",-1,7,7,274,95
     DEFPUSHBUTTON   "Cancel",ID_CANCEL_BUTTON,234,109,46,14,WS_GROUP
-    CONTROL         "Enable Surface Data Cache Reads",IDC_ENABLE_CACHE_SURFACE_READS_CHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,133,71,125,10
-    CONTROL         "Enable Surface Data Cache Writes",IDC_ENABLE_CACHE_SURFACE_WRITES_CHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,133,85,126,10
+    CONTROL         "Enable Surface Data Cache Reads",
+                    IDC_ENABLE_CACHE_SURFACE_READS_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,133,71,125,10
+    CONTROL         "Enable Surface Data Cache Writes",
+                    IDC_ENABLE_CACHE_SURFACE_WRITES_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,133,85,126,10
 END
 
 
@@ -718,7 +907,7 @@ BEGIN
             VALUE "FileDescription", "Julia 4D 2"
             VALUE "FileVersion", "1.1"
             VALUE "InternalName", "julia4d2.exe"
-            VALUE "LegalCopyright", "Copyright © 2020 Shawn Halayka"
+            VALUE "LegalCopyright", "Copyright ? 2004-2005 Shawn Halayka"
             VALUE "OriginalFilename", "julia4d2.exe"
             VALUE "ProductName", "Julia 4D 2"
             VALUE "ProductVersion", "1.1"
@@ -739,9 +928,7 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\julia4d2.ico"
-
 IDR_julia4d2TYPE        ICON                    "res\\julia4d2Doc.ico"
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -750,7 +937,6 @@ IDR_julia4d2TYPE        ICON                    "res\\julia4d2Doc.ico"
 
 1                       RT_MANIFEST             "res\\rt_manif.bin"
 
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
@@ -758,14 +944,13 @@ IDR_julia4d2TYPE        ICON                    "res\\julia4d2Doc.ico"
 
 IDB_SPLASHSCREEN        BITMAP                  "res\\splashscreen.bmp"
 
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // DESIGNINFO
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_MAIN_SETTINGS, DIALOG
     BEGIN
@@ -786,23 +971,23 @@ END
 // String Table
 //
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     IDR_MAINFRAME           "Julia 4D 2\n\njulia4d2\nJulia 4D 2 Settings (*.j4d2)\n.j4d2\njulia4d2.Document\njulia4d2.Document"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     AFX_IDS_APP_TITLE       "Julia 4D 2"
     AFX_IDS_IDLEMESSAGE     "Ready"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
@@ -812,7 +997,7 @@ BEGIN
     ID_INDICATOR_REC        "REC"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_FILE_NEW             "Create a new document\nNew"
     ID_FILE_OPEN            "Open an existing document\nOpen"
@@ -821,13 +1006,13 @@ BEGIN
     ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
     ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_FILE_MRU_FILE1       "Open this document"
     ID_FILE_MRU_FILE2       "Open this document"
@@ -847,18 +1032,18 @@ BEGIN
     ID_FILE_MRU_FILE16      "Open this document"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
     ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_EDIT_CLEAR           "Erase the selection\nErase"
     ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
@@ -873,12 +1058,12 @@ BEGIN
     ID_EDIT_REDO            "Redo the previously undone action\nRedo"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     AFX_IDS_SCSIZE          "Change the window size"
     AFX_IDS_SCMOVE          "Change the window position"
@@ -889,13 +1074,13 @@ BEGIN
     AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     AFX_IDS_SCRESTORE       "Restore the window to normal size"
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VIEW_MAIN_SETTINGS   "Show or hide the Main settings window\nToggle MainSettings"
     ID_VIEW_MESH_SETTINGS   "Show or hide the Mesh settings window\nToggle MeshSettings"
@@ -907,18 +1092,18 @@ BEGIN
     ID_GENERAL_CLASSIC      "You can't teach an old iterative function new tricks..."
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VIEW_HIDEALL         "Hide all Settings windows"
     ID_VIEW_SHOWALL         "Show all Settings windows"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VIEW_RESTOREALL      "Restore all Settings window positions to default configuration"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_RENDERER_POINTSIZE_PLUS "Increase Point Size"
     ID_RENDERER_POINTSIZE_MINUS "Decrease Point Size"
@@ -931,7 +1116,7 @@ BEGIN
     ID_RENDERER_ZOOM_PLUS   "Increase Zoom"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_RENDERER_RESETZSLICING 
                             "Restore all Z Slice settings to default configuration"
@@ -939,12 +1124,12 @@ BEGIN
     ID_RENDERER_ZOOM_MINUS  "Decrease Zoom"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_RENDERER_INTERFACETEXT "Show or Hide on-screen diagnostic information"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_RENDERER_SETBACKGROUNDCOLOR "Set on-screen background colour"
     ID_RENDERER_SETFOGCOLOR "Set depth-cue fog colour"
@@ -956,26 +1141,26 @@ BEGIN
                             "Restore colours to default configuration"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_FILE_GENERATE        "Start / Cancel Set Generation"
     ID_EDIT_CACHESETTINGS   "Edit Cache Settings"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VOXEL_OPACITY_PLUS   "Increases the opacity of voxel points in the renderer window"
     ID_VOXEL_OPACITY_MINUS  "Decreases the opacity of voxel points in the renderer window"
     ID_HELP_LICENSETERMS    "Display the terms of this software's license"
 END
 
-STRINGTABLE
+STRINGTABLE 
 BEGIN
     ID_VIEW_HOPFMAP_SETTINGS 
                             "Show or hide the Hopf Map settings window\nToggle MainSettings"
 END
 
-#endif    // English (United States) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

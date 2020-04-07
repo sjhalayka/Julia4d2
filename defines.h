@@ -36,7 +36,7 @@
 
 
 #define APP_NAME "Julia 4D 2"
-#define APP_VERSION "1.93"
+#define APP_VERSION "1.94"
 #define J4D2_FILE_HDR (CString("JULIA4D002"))
 #define J4D2_FILE_HDR3 (CString("JULIA4D003"))
 #define J4D2_FILE_HDR4 (CString("JULIA4D004"))

@@ -97,7 +97,7 @@ class history_resolution_group
 {
 public:
 	long unsigned int resolution;
-	multiset<history_file_info> cache_files;
+	vector<history_file_info> cache_files;
 
 	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time)
 	{
@@ -154,7 +154,7 @@ public:
 		if(temp_hfi.MD5_hash_string.length() > 15)
 			temp_hfi.MD5_hash_string = temp_hfi.MD5_hash_string.substr(0, temp_hfi.MD5_hash_string.length() - 15);
 
-		cache_files.insert(temp_hfi);
+		cache_files.push_back(temp_hfi);
 	}
 
 	bool operator<(const history_resolution_group &rhs) const
@@ -167,7 +167,7 @@ public:
 
 	void Delete(void)
 	{
-		for(multiset<history_file_info>::iterator i = cache_files.begin(); i != cache_files.end(); i++)
+		for(vector<history_file_info>::iterator i = cache_files.begin(); i != cache_files.end(); i++)
 		{
 			i->Delete();
 		}
@@ -182,7 +182,7 @@ public:
 
 		long unsigned int iter_count = 0;
 
-		for(multiset<history_file_info>::iterator i = cache_files.begin(); i != cache_files.end(); i++)
+		for(vector<history_file_info>::iterator i = cache_files.begin(); i != cache_files.end(); i++)
 		{
 			if(iter_count == file_num)
 			{
@@ -201,19 +201,21 @@ class history_formula_group
 {
 public:
 	wstring formula_text;
-	set<history_resolution_group> resolutions;
+	vector<history_resolution_group> resolutions;
 
 	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time)
 	{
-		//history_resolution_group temp_hrg;
+		history_resolution_group temp_hrg;
 
-		//temp_hrg.resolution = temp_params.resolution;
-
-		//// try to insert new hfg
-		//// if exists already, will get iterator to existing, otherwise, will get iterator to new
-		//pair< set<history_resolution_group>::iterator, bool > pr;
-		//pr = resolutions.insert(temp_hrg);
-		//pr.first->AddFile(src_file_name, temp_params, src_creation_time);
+		temp_hrg.resolution = temp_params.resolution;
+			
+		// try to insert new hfg
+		// if exists already, will get iterator to existing, otherwise, will get iterator to new
+		pair< vector<history_resolution_group>::iterator, bool > pr;
+		resolutions.push_back(temp_hrg);
+		pr.first = resolutions.begin() + (resolutions.size() - 1); 
+		
+		pr.first->AddFile(src_file_name, temp_params, src_creation_time);
 	}
 
 	bool operator<(const history_formula_group &rhs) const
@@ -226,51 +228,51 @@ public:
 
 	void Delete(void)
 	{
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	i->Delete();
-		//}
+		for(vector<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			i->Delete();
+		}
 
-		//resolutions.clear();
+		resolutions.clear();
 	}
 
 	void DeleteResolution(const long unsigned int &resolution_group_num)
 	{
-		//if(resolution_group_num >= resolutions.size())
-		//	return;
+		if(resolution_group_num >= resolutions.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	if(iter_count == resolution_group_num)
-		//	{
-		//		i->Delete();
-		//		resolutions.erase(i);
-		//		break;
-		//	}
+		for(vector<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			if(iter_count == resolution_group_num)
+			{
+				i->Delete();
+				resolutions.erase(i);
+				break;
+			}
 
-		//	iter_count++;
-		//}
+			iter_count++;
+		}
 	}
 
-	void DeleteSingleFile(const long unsigned int resolution_group_num, const long unsigned int file_num) const
+	void DeleteSingleFile(const long unsigned int resolution_group_num, const long unsigned int file_num)
 	{
-		//if(resolution_group_num >= resolutions.size())
-		//	return;
+		if(resolution_group_num >= resolutions.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
-		//{
-		//	if(iter_count == resolution_group_num)
-		//	{
-		//		i->DeleteSingleFile(file_num);
-		//		break;
-		//	}
+		for(vector<history_resolution_group>::iterator i = resolutions.begin(); i != resolutions.end(); i++)
+		{
+			if(iter_count == resolution_group_num)
+			{
+				i->DeleteSingleFile(file_num);
+				break;
+			}
 
-		//	iter_count++;
-		//}
+			iter_count++;
+		}
 	}
 
 };
@@ -279,25 +281,26 @@ public:
 class history_list
 {
 public:
-	set<history_formula_group> formulas;
+	vector<history_formula_group> formulas;
 
 	bool AddFile(const wstring &src_file_name, LARGE_INTEGER src_creation_time)
 	{
-		//Cjulia4d2Doc temp_params;
-		//temp_params.set_parent_vars = false;
+		Cjulia4d2Doc temp_params;
+		temp_params.set_parent_vars = false;
 
-		//if(FALSE == temp_params.OnOpenDocument(wsts(src_file_name).c_str()))
-		//	return false;
+		if(FALSE == temp_params.OnOpenDocument(wsts(src_file_name).c_str()))
+			return false;
 
-		//history_formula_group temp_hfg;
+		history_formula_group temp_hfg;
 
-		//temp_hfg.formula_text = stws(temp_params.formula_text);
+		temp_hfg.formula_text = stws(temp_params.formula_text);
 
-		//// try to insert new hfg
-		//// if exists already, will get iterator to existing, otherwise, will get iterator to new
-		//pair< set<history_formula_group>::iterator, bool > pr;
-		//pr = formulas.insert(temp_hfg);
-		//(pr.first)->AddFile(src_file_name, temp_params, src_creation_time);
+		// try to insert new hfg
+		// if exists already, will get iterator to existing, otherwise, will get iterator to new
+		pair< vector<history_formula_group>::iterator, bool > pr;
+		formulas.push_back(temp_hfg);
+		pr.first = formulas.begin() + (formulas.size() - 1);
+		(pr.first)->AddFile(src_file_name, temp_params, src_creation_time);
 
 		return true;
 	}
@@ -309,42 +312,42 @@ public:
 
 	void DeleteFormula(const long unsigned int &formula_num)
 	{
-		//if(formula_num >= formulas.size())
-		//	return;
+		if(formula_num >= formulas.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
-		//{
-		//	if(iter_count == formula_num)
-		//	{
-		//		i->Delete();
-		//		formulas.erase(i);
-		//		break;
-		//	}
+		for(vector<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
+		{
+			if(iter_count == formula_num)
+			{
+				i->Delete();
+				formulas.erase(i);
+				break;
+			}
 
-		//	iter_count++;
-		//}
+			iter_count++;
+		}
 	}
 
 	// gotta add a bunch of these so that it will auto delete stuff
-	void DeleteResolution(const long unsigned int &formula_num, const long unsigned int &resolution_num) const
+	void DeleteResolution(const long unsigned int &formula_num, const long unsigned int &resolution_num)
 	{
-		//if(formula_num >= formulas.size())
-		//	return;
+		if(formula_num >= formulas.size())
+			return;
 
-		//long unsigned int iter_count = 0;
+		long unsigned int iter_count = 0;
 
-		//for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
-		//{
-		//	if(iter_count == formula_num)
-		//	{
-		//		i->DeleteResolution(resolution_num);
-		//		break;
-		//	}
+		for(vector<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
+		{
+			if(iter_count == formula_num)
+			{
+				i->DeleteResolution(resolution_num);
+				break;
+			}
 
-		//	iter_count++;
-		//}
+			iter_count++;
+		}
 	}
 
 	// gotta add a bunch of these so that it will auto delete stuff
@@ -355,7 +358,7 @@ public:
 
 		long unsigned int iter_count = 0;
 
-		for(set<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
+		for(vector<history_formula_group>::iterator i = formulas.begin(); i != formulas.end(); i++)
 		{
 			if(iter_count == formula_num)
 			{
