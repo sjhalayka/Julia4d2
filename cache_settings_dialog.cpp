@@ -135,7 +135,7 @@ void CCacheSettingsDlg::FillListsFromCache(void)
 		}
 		else
 		{
-			for(vector<history_formula_group>::const_iterator i = h_list.formulas.begin(); i != h_list.formulas.end(); i++)
+			for(set<history_formula_group>::const_iterator i = h_list.formulas.begin(); i != h_list.formulas.end(); i++)
 				GetDlgItem(IDC_FORMULA_GROUP_COMBO)->SendMessage(CB_ADDSTRING, 0, (LPARAM)wsts(i->formula_text).c_str());
 
 			GetDlgItem(IDC_FORMULA_GROUP_COMBO)->EnableWindow(TRUE);
@@ -587,11 +587,11 @@ void CCacheSettingsDlg::OnCbnSelchangeFormulaGroupCombo()
 
 	size_t iter_count = 0;
 
-    for(vector<history_formula_group>::const_iterator i = h_list.formulas.begin(); i != h_list.formulas.end(); i++)
+    for(set<history_formula_group>::const_iterator i = h_list.formulas.begin(); i != h_list.formulas.end(); i++)
 	{
 		if(iter_count == formula_sel)
 		{
-			for(vector<history_resolution_group>::const_iterator resi = i->resolutions.begin(); resi != i->resolutions.end(); resi++)
+			for(set<history_resolution_group>::const_iterator resi = i->resolutions.begin(); resi != i->resolutions.end(); resi++)
 			{
 				ostringstream out;
 				out << resi->resolution;
@@ -634,17 +634,17 @@ void CCacheSettingsDlg::OnCbnSelchangeResolutionGroupCombo()
 
 	size_t formula_iter_count = 0;
 
-    for(vector<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
+    for(set<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
 	{
 		if(formula_iter_count == formula_sel)
 		{
 			size_t resolution_iter_count = 0;
 
-			for(vector<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
+			for(set<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
 			{
 				if(resolution_iter_count == res_sel)
 				{
-					for(vector<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
+					for(multiset<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
 						GetDlgItem(IDC_FILE_LIST)->SendMessage(LB_ADDSTRING, 0, (LPARAM) wsts(hfii->MD5_hash_string).c_str());
 
 					break;
@@ -689,19 +689,19 @@ void CCacheSettingsDlg::OnLbnSelchangeFileList()
 
 	size_t formula_iter_count = 0;
 
-    for(vector<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
+    for(set<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
 	{
 		if(formula_iter_count == formula_sel)
 		{
 			size_t resolution_iter_count = 0;
 
-			for(vector<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
+			for(set<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
 			{
 				if(resolution_iter_count == res_sel)
 				{
 					size_t file_list_iter_count = 0;
 
-					for(vector<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
+					for(multiset<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
 					{
 						if(file_list_iter_count == file_list_sel)
 						{
@@ -765,19 +765,19 @@ void CCacheSettingsDlg::OnLbnDblclkFileList()
 
 	size_t formula_iter_count = 0;
 
-    for(vector<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
+    for(set<history_formula_group>::const_iterator fi = h_list.formulas.begin(); fi != h_list.formulas.end(); fi++)
 	{
 		if(formula_iter_count == formula_sel)
 		{
 			size_t resolution_iter_count = 0;
 
-			for(vector<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
+			for(set<history_resolution_group>::const_iterator resi = fi->resolutions.begin(); resi != fi->resolutions.end(); resi++)
 			{
 				if(resolution_iter_count == res_sel)
 				{
 					size_t file_list_iter_count = 0;
 
-					for(vector<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
+					for(multiset<history_file_info>::const_iterator hfii = resi->cache_files.begin(); hfii != resi->cache_files.end(); hfii++)
 					{
 						if(file_list_iter_count == file_list_sel)
 						{
