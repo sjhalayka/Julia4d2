@@ -4,4 +4,4 @@
 
 #include "stdafx.h"
 
-
+#pragma comment(lib, "legacy_stdio_definitions.lib")

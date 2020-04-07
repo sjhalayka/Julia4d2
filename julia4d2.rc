@@ -935,7 +935,7 @@ IDR_julia4d2TYPE        ICON                    "res\\julia4d2Doc.ico"
 // RT_MANIFEST
 //
 
-1                       RT_MANIFEST             "res\\rt_manif.bin"
+//1                       RT_MANIFEST             "res\\rt_manif.bin"
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -232,9 +232,6 @@
     <None Include="res\mainsplash.bmp">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="res\rt_manif.bin">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="res\splashscreen.bmp">
       <Filter>Resource Files</Filter>
     </None>
