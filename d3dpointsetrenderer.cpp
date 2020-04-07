@@ -443,9 +443,9 @@ bool D3DPointSetRenderer::Init(const HWND &src_target)
 
 
 
-	int nPointSize = 8;
+//	int nPointSize = 12;
 	HDC hDC = GetDC(NULL);
-	int nHeight = -(MulDiv(nPointSize, GetDeviceCaps(hDC, LOGPIXELSY), 72 ));
+	int nHeight = 20;//-(MulDiv(nPointSize, GetDeviceCaps(hDC, LOGPIXELSY), 72 ));
 	ReleaseDC(NULL, hDC);
 
 	if(FAILED(d3d_ret_code = D3DXCreateFont(device, nHeight, 0, FW_NORMAL, 0, FALSE, 
