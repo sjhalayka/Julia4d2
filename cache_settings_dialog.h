@@ -99,7 +99,7 @@ public:
 	long unsigned int resolution;
 	multiset<history_file_info> cache_files;
 
-	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time)
+	void AddFileHRG(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time)
 	{
 		history_file_info temp_hfi;
 
@@ -200,20 +200,21 @@ public:
 class history_formula_group
 {
 public:
-	wstring formula_text;
 	set<history_resolution_group> resolutions;
 
-	void AddFile(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time) const
+	wstring formula_text;
+
+	void AddFileHFG(const wstring &src_file_name, const Cjulia4d2Doc &temp_params, LARGE_INTEGER &src_creation_time) const
 	{
-		//history_resolution_group temp_hrg;
+		history_resolution_group temp_hrg;
 
-		//temp_hrg.resolution = temp_params.resolution;
+		temp_hrg.resolution = temp_params.resolution;
 
-		//// try to insert new hfg
-		//// if exists already, will get iterator to existing, otherwise, will get iterator to new
-		//pair< set<history_resolution_group>::iterator, bool > pr;
-		//pr = resolutions.insert(temp_hrg);
-		//pr.first->AddFile(src_file_name, temp_params, src_creation_time);
+		// try to insert new hfg
+		// if exists already, will get iterator to existing, otherwise, will get iterator to new
+		pair< set<history_resolution_group>::iterator, bool > pr;
+		pr = resolutions.insert(temp_hrg);
+		pr.first->AddFileHRG(src_file_name, temp_params, src_creation_time);
 	}
 
 	bool operator<(const history_formula_group &rhs) const
@@ -297,7 +298,7 @@ public:
 		// if exists already, will get iterator to existing, otherwise, will get iterator to new
 		pair< set<history_formula_group>::iterator, bool > pr;
 		pr = formulas.insert(temp_hfg);
-		pr.first->AddFile(src_file_name, temp_params, src_creation_time);
+		pr.first->AddFileHFG(src_file_name, temp_params, src_creation_time);
 
 		return true;
 	}
