@@ -40,8 +40,8 @@ BOOL Cjulia4d2App::InitInstance()
 {
 	if(GetSystemMetrics(SM_CXSCREEN) < 1024 || GetSystemMetrics(SM_CYSCREEN) < 768)
 	{
-		MessageBox(0, "Julia 4D 2 requires 1024x768 screen resolution, or better.\n\nThe application will now exit.", APP_NAME, MB_OK|MB_ICONINFORMATION);
-		return FALSE;
+		MessageBox(0, "Julia 4D 2 highly recommends 1024x768 screen resolution, or better.\n\nThe application will now start.", APP_NAME, MB_OK|MB_ICONINFORMATION);
+		//return FALSE;
 	}
 
 	// InitCommonControls() is required on Windows XP if an application
