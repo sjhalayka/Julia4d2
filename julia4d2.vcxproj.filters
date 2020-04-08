@@ -33,9 +33,6 @@
     <Filter Include="Header Files\renderer">
       <UniqueIdentifier>{89988bba-4c4d-451d-bf2c-e56537f50229}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\set generation">
-      <UniqueIdentifier>{5794dbec-4f5c-4a32-93ce-b9b18c1c9697}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\quaternion math lib">
       <UniqueIdentifier>{4a234519-bdd7-49a7-ae44-ce8e18dd2f48}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,9 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Header Files\set generation">
+      <UniqueIdentifier>{5794dbec-4f5c-4a32-93ce-b9b18c1c9697}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
